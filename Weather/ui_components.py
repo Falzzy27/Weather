@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from constants import THEMES
+from datetime import datetime
 
 def fade_in_icon(label, img, steps=30, delay=20):
     def step(alpha):
@@ -113,7 +114,26 @@ def show_hourly_and_daily_forecast(frame, city, hourly, daily, is_dark_theme):
     for i in range(3):
         daily_cards.grid_columnconfigure(i, weight=1, uniform="equal")
 
+    # Получаем текущую дату
+    today = datetime.now()
+    
     for i, (status, temp) in enumerate(daily):
+        # Вычисляем дату для каждого дня
+        day_date = today.replace(day=today.day + i)
+        # Получаем название дня недели
+        day_name = day_date.strftime("%A")
+        # Переводим на русский язык
+        days_ru = {
+            "Monday": "Понедельник",
+            "Tuesday": "Вторник",
+            "Wednesday": "Среда",
+            "Thursday": "Четверг",
+            "Friday": "Пятница",
+            "Saturday": "Суббота",
+            "Sunday": "Воскресенье"
+        }
+        day_name_ru = days_ru[day_name]
+        
         # Создаем карточку для каждого дня
         card = tk.Frame(daily_cards,
                        bg=colors["secondary"],
@@ -125,7 +145,7 @@ def show_hourly_and_daily_forecast(frame, city, hourly, daily, is_dark_theme):
 
         # День недели
         day_label = tk.Label(card,
-                           text=f"День {i+1}",
+                           text=day_name_ru,
                            font=('Segoe UI', 14, 'bold'),
                            bg=colors["secondary"],
                            fg=colors["text"])
