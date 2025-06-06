@@ -3,8 +3,8 @@ IP_TOKEN = '26f8959fa50541'
 WEATHER_TOKEN = "0e0d04f2f8974df8d4d2fad884daf679"
 
 # File paths
-FAVORITE_CITIES_FILE = r"Weather\favorite_cities.json"
-SETTINGS_FILE = r"Weather\settings.json"
+FAVORITE_CITIES_FILE = r"favorite_cities.json"
+SETTINGS_FILE = r"settings.json"
 
 # Theme configurations
 THEMES = {
