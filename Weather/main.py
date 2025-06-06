@@ -1,3 +1,8 @@
+"""
+перед запуском программы нужно установить библиотеки: pip install -r requirements.txt
+"""
+
+
 import tkinter as tk
 import asyncio
 from constants import THEMES
